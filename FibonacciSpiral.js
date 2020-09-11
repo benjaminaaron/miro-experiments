@@ -45,7 +45,7 @@ getGradientColor = (start_color, end_color, percent) => { // from https://stacko
 for (let i = 0; i < n; i++) {
     x = Math.cos(angle) * radius;
     y = Math.sin(angle) * radius;
-    miro.board.widgets.create({type:'sticker', style: {stickerBackgroundColor: getGradientColor('#fff9b2', '#7f94f8', i * (1 / (n - 1)))}, text: i, x: x, y: - y})
+    await miro.board.widgets.create({type:'sticker', style: {stickerBackgroundColor: getGradientColor('#fff9b2', '#7f94f8', i * (1 / (n - 1)))}, text: i, x: x, y: - y})
     angle += goldenAngle;
     radius += outwards;
 }
