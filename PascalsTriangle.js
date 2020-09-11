@@ -4,6 +4,8 @@ let width = 199;
 let height = 228;
 let xStart = 0;
 let yStart = 0;
+let red = '#ff9e4a';
+let yellow = '#fff9b2';
 let orange = '#f0d150';
 let blue = '#7f94f8';
 
