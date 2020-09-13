@@ -64,3 +64,14 @@ for (let i = 0; i < stickers.length; i++) {
         miro.board.widgets.update({id: sticker.id, style: {stickerBackgroundColor: blue}})
     }
 }
+
+// TODO tag stickers with group size
+
+// await miro.board.widgets.get()
+// await miro.board.tags.get()
+
+// https://github.com/YashBhalodi/cardsy/blob/18f76af43303eff6089b4d6b78f79f91cddb7e5b/main.js#L161
+// await miro.board.tags.update({
+//     id: "", // tagId
+//     widgetIds: [] // stickers tagged with this tag
+// });
