@@ -8,6 +8,18 @@ let n = 500;
 let goldenRatio = (1 + Math.sqrt(5)) / 2;
 let goldenAngle = 2 * Math.PI * (1 - 1 / goldenRatio); // https://en.wikipedia.org/wiki/Golden_angle
 
+for (let i = 0; i < n; i++) {
+    x = Math.cos(angle) * radius;
+    y = Math.sin(angle) * radius;
+    // stickerBackgroundColor: getGradientColor('#fff9b2', '#7f94f8', i * (1 / (n - 1)))
+    await miro.board.widgets.create({type:'sticker', style: {stickerBackgroundColor: '#23bfe7'}, text: i, x: x, y: - y})
+    angle += goldenAngle;
+    radius += outwards;
+}
+
+/*
+Doesn't work anymore because Miro seems to have restricted colors to a few defined ones: https://developers.miro.com/reference#sticker
+
 getGradientColor = (start_color, end_color, percent) => { // from https://stackoverflow.com/a/27709336
     start_color = start_color.replace(/^\s*#|\s*$/g, '');
     end_color = end_color.replace(/^\s*#|\s*$/g, '');
@@ -41,11 +53,4 @@ getGradientColor = (start_color, end_color, percent) => { // from https://stacko
 
     return '#' + diff_red + diff_green + diff_blue;
 };
-
-for (let i = 0; i < n; i++) {
-    x = Math.cos(angle) * radius;
-    y = Math.sin(angle) * radius;
-    await miro.board.widgets.create({type:'sticker', style: {stickerBackgroundColor: getGradientColor('#fff9b2', '#7f94f8', i * (1 / (n - 1)))}, text: i, x: x, y: - y})
-    angle += goldenAngle;
-    radius += outwards;
-}
+*/
