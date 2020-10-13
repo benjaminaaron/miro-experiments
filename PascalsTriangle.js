@@ -11,6 +11,7 @@ let orange = '#ff9d48';
 let blue = '#23bfe7';
 
 let stickers = [];
+let lastStickersInRow = [];
 
 const addSticker = options => {
     stickers.push(options);
@@ -31,7 +32,9 @@ async function generateRowsFromTo(from, to, showOneByOne) {
             x += 1.5 * width;
             newRow.push(addSticker({row: i, val: val, x: x, y: yStart}));
         }
-        newRow.push(addSticker({row: i, val: 1, x: x + 1.5 * width, y: yStart}));
+        let lastStickerInRow = addSticker({row: i, val: 1, x: x + 1.5 * width, y: yStart});
+        newRow.push(lastStickerInRow);
+        lastStickersInRow.push(lastStickerInRow);
         rows.push(newRow);
     }
     //stickers = [].concat.apply([], rows);
@@ -65,6 +68,13 @@ for (let i = 0; i < stickers.length; i++) {
     if (sticker.val % 2 === 1) {
         miro.board.widgets.update({id: sticker.id, style: {stickerBackgroundColor: blue}, x: sticker.x, y: - sticker.y })
     }
+}
+
+// COPY-PASTE #4 from here: show total sum of subgroups next to the respective row
+for (let i = 0; i < lastStickersInRow.length; i++) {
+    let sticker = lastStickersInRow[i];
+    let stickerOptions = {type:'sticker', style: {stickerBackgroundColor: red}, text: Math.pow(2, (i + 1)), x: sticker.x + 1.5 * width, y: - sticker.y};
+    await miro.board.widgets.create(stickerOptions)
 }
 
 // TODO tag stickers with group size
