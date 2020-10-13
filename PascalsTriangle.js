@@ -41,7 +41,7 @@ async function generateRowsFromTo(from, to, showOneByOne) {
         if (sticker.row !== 0 && sticker.row < from) {
             continue;
         }
-        let stickerOptions = {type:'sticker', style: {stickerBackgroundColor: orange}, text: sticker.val, x: sticker.x, y: - sticker.y};
+        let stickerOptions = {type:'sticker', style: {stickerBackgroundColor: yellow}, text: sticker.val, x: sticker.x, y: - sticker.y};
         if (showOneByOne) {
             let stickerObj = (await miro.board.widgets.create(stickerOptions))[0];
             sticker.id = stickerObj.id;
@@ -56,9 +56,10 @@ async function generateRowsFromTo(from, to, showOneByOne) {
 generateRowsFromTo(1, 8, true);
 // ---- COPY-PASTE #1 until here
 
-// generateRowsFromTo(7, 20, false);
+// ---- COPY-PASTE #2 this line
+generateRowsFromTo(9, 32, false);
 
-// COPY-PASTE #2 from here: color odd stickers to reveal Sierpiński triangle
+// COPY-PASTE #3 from here: color odd stickers to reveal Sierpiński triangle
 for (let i = 0; i < stickers.length; i++) {
     let sticker = stickers[i];
     if (sticker.val % 2 === 1) {
