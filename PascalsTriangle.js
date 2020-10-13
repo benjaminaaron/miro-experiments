@@ -62,7 +62,7 @@ generateRowsFromTo(1, 8, true);
 for (let i = 0; i < stickers.length; i++) {
     let sticker = stickers[i];
     if (sticker.val % 2 === 1) {
-        miro.board.widgets.update({id: sticker.id, style: {stickerBackgroundColor: blue}})
+        miro.board.widgets.update({id: sticker.id, style: {stickerBackgroundColor: blue}, x: sticker.x, y: - sticker.y })
     }
 }
 
