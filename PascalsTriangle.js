@@ -4,10 +4,11 @@ let width = 199;
 let height = 228;
 let xStart = 0;
 let yStart = 0;
-let red = '#ff9e4a';
-let yellow = '#fff9b2';
-let orange = '#f0d150';
-let blue = '#7f94f8';
+//allowed colors: https://developers.miro.com/reference#sticker
+let red = '#f16c7f';
+let yellow = '#fff9b1';
+let orange = '#ff9d48';
+let blue = '#23bfe7';
 
 let stickers = [];
 
